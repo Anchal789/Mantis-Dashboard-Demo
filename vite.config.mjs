@@ -9,19 +9,20 @@ import jsconfigPaths from 'vite-jsconfig-paths';
 export default defineConfig({
   plugins: [react(), jsconfigPaths()],
   // https://github.com/jpuri/react-draft-wysiwyg/issues/1317
-  base: '/free', // accessing env variable is not possible here. So hard coding this.
+  base: '/emgage-dashboard-mantis/', // accessing env variable is not possible here. So hard coding this.
   define: {
     global: 'window'
   },
   build: {
+    outDir: 'dist',
     rollupOptions: {
       external: [
         '@mui/x-date-pickers/DatePicker',
         '@mui/x-date-pickers/DateTimePicker',
         '@mui/icons-material/ArrowDownward',
-        "@mui/x-date-pickers/TimePicker"
-      ],
-    },
+        '@mui/x-date-pickers/TimePicker'
+      ]
+    }
   },
   resolve: {
     alias: [

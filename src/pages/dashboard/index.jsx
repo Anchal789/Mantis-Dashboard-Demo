@@ -197,17 +197,6 @@ export default function DashboardDefault() {
     },
     labels: ['Paternity Leave', "PL", "Sick Leave", "Causal Leave"],
     colors: ['#FD5E75', "#FCB939", "#24E5A3", "#249DF9"], // Tailwind's indigo-500
-
-    responsive: [
-      {
-        breakpoint: 480,
-        options: {
-          legend: {
-            show: true,
-          },
-        },
-      },
-    ],
   };
 
 
@@ -284,8 +273,6 @@ export default function DashboardDefault() {
   const [seconds, setSeconds] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
   const currentDate = new Date();
-
-  console.log(currentDate.toLocaleDateString([], { month: 'short', day: 'numeric' }))
 
   useEffect(() => {
     const storedData = localStorage.getItem('timerData');
@@ -383,7 +370,7 @@ export default function DashboardDefault() {
       {/* Announcement */}
       <Grid item xs={12} md={6} lg={6}>
         <Grid container alignItems="center" justifyContent="space-between">
-          <Grid item className='flex w-full' justifyContent={"space-between"}>
+          <Grid item className='flex w-full flex-wrap' justifyContent={"space-between"}>
             <Typography variant="h5">Announcement, Event & Newsletter List  </Typography>
             <Box display={"flex"} gap={1}>
               {isAdmin &&
@@ -558,7 +545,7 @@ export default function DashboardDefault() {
               <Box sx={{ p: 2 }} >
                 <Typography variant="h4">Welcome John Doe</Typography>
                 <Typography variant="body2" color="text.secondary">Office Timing: 09:00AM to 06:00PM</Typography>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', }}>
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }}>
                   {/* <Box onClick={handlePunchInOut} width={190} height={190} borderRadius={'50%'} boxShadow={'0px 4px 4px rgba(0, 0, 0, 0.25)'} sx={{ border: `3px solid ${punchInOut ? "#ff787590" :  "#6C5FFC90"}`, display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 2 }}>
                       <Box width={180} height={180} borderRadius={'50%'} sx={{ bgcolor: punchInOut ? "#ff7875" : '#6C5FFC', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', cursor: 'pointer' }}>
                         <Typography variant="h3" color={"white"}>{punchInOut ? "PUNCH OUT" : "PUNCH IN"}</Typography>
@@ -590,6 +577,7 @@ export default function DashboardDefault() {
                       sx={{
                         px: 0,
                         py: 0,
+                        '@media (max-width:500px)': { display: "flex", flexWrap: "wrap" },
                         '& .MuiListItemButton-root': {
                           py: 1.78,
                           '& .MuiAvatar-root': avatarSX,
@@ -639,10 +627,7 @@ export default function DashboardDefault() {
               </Box>
               <Divider />
               <Box sx={{ py: 1, px: 2 }}>
-                <Box display={"flex"} width={"50%"} justifyContent={"space-between"}>
-                  <Typography variant="h5">Attendance Details Missing</Typography>
-
-                </Box>
+                <Typography variant="h5">Attendance Details Missing</Typography>
                 <Box display={"flex"} alignItems={"center"} gap={"5px"} sx={{ overflowX: "scroll", py: 2, maxHeight: "50vh" }} width={"100%"}>
                   <Box minWidth={"50px"} height={"50px"} border={"1px dashed red"} color={"red"} borderRadius={"7px"} bgcolor={"#F9E6E6"} display={"flex"} alignItems={"center"} justifyContent={"center"}>1</Box>
                   <Box minWidth={"50px"} height={"50px"} border={"1px dashed red"} color={"red"} borderRadius={"7px"} bgcolor={"#F9E6E6"} display={"flex"} alignItems={"center"} justifyContent={"center"}>4</Box>
@@ -685,7 +670,6 @@ export default function DashboardDefault() {
                 contentHeight={400}
                 events={dates}
                 eventDisplay='list-item'
-                eventClick={(info) => console.log(info)}
                 eventContent={renderEventContent} // Custom event rendering as dots
                 dayCellClassNames={(day) =>
                   day.date.toDateString() === new Date().toDateString() ? 'active' : ''
@@ -693,23 +677,23 @@ export default function DashboardDefault() {
               />
               <Box sx={{ p: 1 }} display={"flex"} justifyContent={"space-between"} flexWrap={"wrap"} gap={1}>
                 <Box display={"flex"} gap={1} alignItems={"center"}>
-                  <Box sx={{width: "15px", height: "15px", backgroundColor: "#34B53A", borderRadius: ""}}></Box>
+                  <Box sx={{ width: "15px", height: "15px", backgroundColor: "#34B53A", borderRadius: "" }}></Box>
                   <Typography>Present</Typography>
                 </Box>
                 <Box display={"flex"} gap={1} alignItems={"center"}>
-                  <Box sx={{width: "15px", height: "15px", backgroundColor: "#FF3A29", borderRadius: ""}}></Box>
+                  <Box sx={{ width: "15px", height: "15px", backgroundColor: "#FF3A29", borderRadius: "" }}></Box>
                   <Typography>Absent</Typography>
                 </Box>
                 <Box display={"flex"} gap={1} alignItems={"center"}>
-                  <Box sx={{width: "15px", height: "15px", backgroundColor: "#FFB200", borderRadius: ""}}></Box>
+                  <Box sx={{ width: "15px", height: "15px", backgroundColor: "#FFB200", borderRadius: "" }}></Box>
                   <Typography>Holiday</Typography>
                 </Box>
                 <Box display={"flex"} gap={1} alignItems={"center"}>
-                  <Box sx={{width: "15px", height: "15px", backgroundColor: "#6C5FFC", borderRadius: ""}}></Box>
+                  <Box sx={{ width: "15px", height: "15px", backgroundColor: "#6C5FFC", borderRadius: "" }}></Box>
                   <Typography>Paid Leave</Typography>
                 </Box>
                 <Box display={"flex"} gap={1} alignItems={"center"}>
-                  <Box sx={{width: "15px", height: "15px", backgroundColor: "#000000", borderRadius: ""}}></Box>
+                  <Box sx={{ width: "15px", height: "15px", backgroundColor: "#000000", borderRadius: "" }}></Box>
                   <Typography>Week Off</Typography>
                 </Box>
               </Box>

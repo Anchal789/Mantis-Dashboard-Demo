@@ -3,7 +3,7 @@
 export default function TableCell(theme) {
   const commonCell = {
     '&:not(:last-of-type)': {
-      position: 'relative',
+      // position: 'relative',
       '&:after': {
         position: 'absolute',
         content: '""',
@@ -49,7 +49,7 @@ export default function TableCell(theme) {
         head: {
           fontSize: '0.75rem',
           fontWeight: 700,
-          textTransform: 'uppercase',
+          // textTransform: 'uppercase',
           ...commonCell
         },
         footer: {

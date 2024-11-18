@@ -10,13 +10,13 @@ import ReactApexChart from 'react-apexcharts';
 const areaChartOptions = {
   chart: {
     height: 340,
-    type: 'line',
+    type: 'area',
     toolbar: {
       show: false
     }
   },
   dataLabels: {
-    enabled: false
+    enabled: true
   },
   stroke: {
     curve: 'smooth',
@@ -28,6 +28,10 @@ const areaChartOptions = {
   xaxis: {
     type: 'datetime',
     categories: [
+      '2018-01-19T00:00:00.000Z',
+      '2018-02-19T00:00:00.000Z',
+      '2018-03-19T00:00:00.000Z',
+      '2018-04-19T00:00:00.000Z',
       '2018-05-19T00:00:00.000Z',
       '2018-06-19T00:00:00.000Z',
       '2018-07-19T01:30:00.000Z',
@@ -41,14 +45,14 @@ const areaChartOptions = {
       format: 'MMM'
     },
     axisBorder: {
-      show: false
+      show: true
     },
     axisTicks: {
       show: false
     }
   },
   yaxis: {
-    show: false
+    show: true
   },
   tooltip: {
     x: {
@@ -92,9 +96,9 @@ export default function ReportAreaChart() {
   const [series] = useState([
     {
       name: 'Series 1',
-      data: [58, 115, 28, 83, 63, 75, 35, 55]
+      data: [200, 180, 10, 0, 0, 0, 0, 0, 20, 40, 70, 30, 150]
     }
   ]);
 
-  return <ReactApexChart options={options} series={series} type="line" height={340} />;
+  return <ReactApexChart options={options} series={series} type="area" height={340} />;
 }

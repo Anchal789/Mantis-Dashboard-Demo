@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 // material-ui
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
 
@@ -31,7 +31,6 @@ export default function Breadcrumbs({ navigation, title, ...others }) {
       });
     }
   };
-
   useEffect(() => {
     navigation?.items?.map((menu) => {
       if (menu.type && menu.type === 'group') {
@@ -61,7 +60,7 @@ export default function Breadcrumbs({ navigation, title, ...others }) {
   }
 
   // items
-  if (item && item.type === 'item') {
+  if (item && item.type !== 'item') {
     itemTitle = item.title;
     itemContent = (
       <Typography variant="subtitle1" color="textPrimary">
@@ -74,7 +73,7 @@ export default function Breadcrumbs({ navigation, title, ...others }) {
       breadcrumbContent = (
         <MainCard border={false} sx={{ mb: 3, bgcolor: 'transparent' }} {...others} content={false}>
           <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start" spacing={1}>
-            <Grid>
+            <Grid item>
               <MuiBreadcrumbs aria-label="breadcrumb">
                 <Typography component={Link} to="/" color="textSecondary" variant="h6" sx={{ textDecoration: 'none' }}>
                   Home
@@ -84,7 +83,7 @@ export default function Breadcrumbs({ navigation, title, ...others }) {
               </MuiBreadcrumbs>
             </Grid>
             {title && (
-              <Grid sx={{ mt: 2 }}>
+              <Grid item sx={{ mt: 2 }}>
                 <Typography variant="h5">{item.title}</Typography>
               </Grid>
             )}
@@ -111,6 +110,5 @@ Breadcrumbs.propTypes = {
   title: PropTypes.bool,
   titleBottom: PropTypes.bool,
   sx: PropTypes.any,
-  others: PropTypes.any,
-  navigation: PropTypes.object
+  others: PropTypes.any
 };

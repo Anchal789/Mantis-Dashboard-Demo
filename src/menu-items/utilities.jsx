@@ -27,14 +27,14 @@ const utilities = {
   children: [
     {
       id: 'util-typography',
-      title: 'Typography',
+      title: 'Listing Page',
       type: 'item',
       url: '/typography',
       icon: icons.FontSizeOutlined
     },
     {
       id: 'util-color',
-      title: 'Color',
+      title: 'Data Table',
       type: 'item',
       url: '/color',
       icon: icons.BgColorsOutlined

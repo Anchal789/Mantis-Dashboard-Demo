@@ -23,22 +23,22 @@ const barChartOptions = {
     }
   },
   dataLabels: {
-    enabled: false
+    enabled: true
   },
   xaxis: {
-    categories: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
+    categories: ['Mon', 'Tue', 'Wed', 'Thru', 'Fri', 'Sat', 'Sun'],
     axisBorder: {
-      show: false
+      show: true
     },
     axisTicks: {
-      show: false
+      show: true
     }
   },
   yaxis: {
-    show: false
+    show: true
   },
   grid: {
-    show: false
+    show: true
   }
 };
 
@@ -48,11 +48,11 @@ export default function MonthlyBarChart() {
   const theme = useTheme();
 
   const { primary, secondary } = theme.palette.text;
-  const info = theme.palette.info.light;
+  const info = theme.palette.primary.light;
 
   const [series] = useState([
     {
-      data: [80, 95, 70, 42, 65, 55, 78]
+      data: [0, 2, 3.5, 1.5, 1.5, 0, 0]
     }
   ]);
 

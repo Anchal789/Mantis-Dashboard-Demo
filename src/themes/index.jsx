@@ -10,6 +10,7 @@ import Palette from './palette';
 import Typography from './typography';
 import CustomShadows from './shadows';
 import componentsOverride from './overrides';
+import "index.css"
 
 // ==============================|| DEFAULT THEME - MAIN  ||============================== //
 

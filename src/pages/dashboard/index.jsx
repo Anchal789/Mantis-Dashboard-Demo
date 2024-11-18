@@ -952,9 +952,11 @@ export default function DashboardDefault() {
         </Grid>
         <MainCard sx={{ mt: 2 }} content={false}>
           <Box justifyContent={"space-evenly"} sx={{ pt: 2 }}>
-            <Box sx={{ height: 255, maxWidth: 400, width: '100%', p: 2, pt: 0 }}>
+            <Box sx={{ height: 255, width: '100%', p: 2, pt: 0 }}>
               <Typography variant="h6" gutterBottom>{imagesName[activeStep]}</Typography>
-              <img src={images[activeStep]} alt="gallery1" />
+              <Box sx={{ display: "flex", justifyContent: "center", width: "100%", alignItems: "center" }}>
+                <img src={images[activeStep]} alt="gallery1" width={"370px"} />
+              </Box>
             </Box>
             <MobileStepper
               variant="text"

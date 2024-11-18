@@ -17,10 +17,10 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       external: [
-        // '@mui/x-date-pickers/DatePicker',
-        // '@mui/x-date-pickers/DateTimePicker',
-        // '@mui/icons-material',
-        // "@mui/x-date-pickers/TimePicker"
+        '@mui/x-date-pickers/DatePicker',
+        '@mui/x-date-pickers/DateTimePicker',
+        '@mui/icons-material',
+        "@mui/x-date-pickers/TimePicker"
       ],
     },
   },

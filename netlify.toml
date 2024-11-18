@@ -3,4 +3,7 @@
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20.15.0"
+
+  [vite]
+  rollupOptions.external = ["@mui/x-date-pickers/DatePicker", "@mui/icons-material/ArrowDownward"]

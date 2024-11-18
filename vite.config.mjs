@@ -15,7 +15,10 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      external: ['@mui/icons-material/ArrowDownward'],
+      external: [
+        '@mui/x-date-pickers/DatePicker',
+        '@mui/icons-material/ArrowDownward',
+      ],
     },
   },
   resolve: {

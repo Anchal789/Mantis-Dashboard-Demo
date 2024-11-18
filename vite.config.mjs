@@ -13,6 +13,11 @@ export default defineConfig({
   define: {
     global: 'window'
   },
+  build: {
+    rollupOptions: {
+      external: ['@mui/icons-material/ArrowDownward'],
+    },
+  },
   resolve: {
     alias: [
       {

@@ -10,6 +10,8 @@ export default defineConfig({
   plugins: [react(), jsconfigPaths()],
   // https://github.com/jpuri/react-draft-wysiwyg/issues/1317
   base: '/dist', // accessing env variable is not possible here. So hard coding this.
+  outDir: 'dist',
+  assetsDir: 'assets',
   define: {
     global: 'window'
   },

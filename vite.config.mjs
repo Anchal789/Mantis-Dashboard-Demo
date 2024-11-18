@@ -19,7 +19,7 @@ export default defineConfig({
       external: [
         '@mui/x-date-pickers/DatePicker',
         '@mui/x-date-pickers/DateTimePicker',
-        '@mui/icons-material/ArrowDownward',
+        '@mui/icons-material',
         "@mui/x-date-pickers/TimePicker"
       ],
     },
